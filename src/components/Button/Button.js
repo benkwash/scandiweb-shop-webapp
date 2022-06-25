@@ -8,7 +8,7 @@ class Button extends Component {
       const {
          name,
          type = 'button',
-         onClick,
+         onClick = () => {},
          variant = 'primary'
       } = this.props;
       return (

@@ -1,0 +1,52 @@
+.attr-title {
+   font-family: 'Roboto Condensed';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 18px;
+   margin-bottom: 5px;
+   color: #1d1f22;
+}
+.attribute-items {
+   display: flex;
+   flex-direction: row;
+}
+
+.color-attr > div {
+   width: 35px;
+   height: 35px;
+   margin: 1px;
+}
+
+.color-attr.selected-item {
+   border: 1px solid #5ece7b;
+   border-style: double;
+}
+
+.other-attr {
+   position: relative;
+   border: 1px solid #1d1f22;
+   width: 63px;
+   height: 45px;
+   text-align: center;
+}
+
+.other-attr h3 {
+   position: absolute;
+   margin: 0;
+   display: inline-block;
+   letter-spacing: 0.05em;
+   font-family: 'Source Sans Pro';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+}
+
+.other-attr.selected-item {
+   background: #1d1f22;
+   color: #fff;
+}
+.items {
+   cursor: pointer;
+   margin-right: 12px;
+}

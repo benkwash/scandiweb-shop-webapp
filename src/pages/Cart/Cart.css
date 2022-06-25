@@ -1,0 +1,41 @@
+.cart-page {
+   width: 100%;
+}
+
+.cart-page-title {
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 32px;
+   line-height: 40px;
+   text-transform: uppercase;
+   color: #1d1f22;
+   margin-bottom: 45px;
+}
+
+hr {
+   color: #e5e5e5;
+}
+
+.cart-details {
+   margin-top: 30px;
+}
+.cart-details button {
+   margin-top: 40px;
+}
+.cart-details table tbody tr td {
+   font-family: 'Raleway';
+   font-style: normal;
+   font-size: 24px;
+   line-height: 28px;
+   color: #1d1f22;
+}
+.cart-details table tbody tr:nth-child(1) {
+   font-weight: 400;
+}
+.cart-details table tbody tr td:nth-child(2) {
+   font-weight: 700;
+}
+.cart-details table tbody tr .total {
+   font-weight: 500;
+}

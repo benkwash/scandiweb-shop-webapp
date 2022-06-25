@@ -10,12 +10,9 @@
    bottom: 0px;
 }
 .nav-items {
-   /* border: solid green; */
-   /* width: 97px; */
    padding: 0 10px 0 10px;
    height: 56px;
    position: relative;
-   /* border: solid yellow; */
 }
 .nav-text {
    color: #1d1f22;
@@ -34,7 +31,6 @@
    left: 50%;
    -ms-transform: translateX(-50%);
    transform: translateX(-50%);
-   /* border: solid red; */
 }
 
 .nav-selected {
@@ -74,7 +70,6 @@
    font-weight: 500;
    font-size: 18px;
    line-height: 28.8px;
-   /* align-self: center; */
 }
 .currency-ico {
    margin-left: 5px;
@@ -98,12 +93,9 @@
    border-radius: 60px;
    margin: auto;
    background-color: #1d1f22;
-   /* color: #fff; */
    text-align: center;
 }
 .cart-badge {
-   /* position: relative; */
-   /* bottom: 10px; */
    color: #fff;
    font-family: 'Roboto';
    font-weight: 700;
@@ -138,11 +130,10 @@
 }
 
 .cart-tab {
-   /* border: solid red; */
    display: inline-block;
    z-index: 11;
    position: absolute;
-   width: 240px;
+   width: 250px;
    background: #ffffff;
    right: -20px;
    top: 63px;
@@ -154,19 +145,57 @@
    overflow-y: scroll;
    overflow-x: hidden;
 }
-.cart-tab .cart-page {
-   /* border: solid green; */
-   /* width: 325px; */
-   /* margin: 0; */
-   /* transform: scale(0.5); */
-   /* zoom: 45%; */
-}
+
 .cart-tab .cart-page > * {
    zoom: 40%;
 }
 
-.cart-tab .cart-tab-buttons {
-   zoom: 50%;
+.cart-total,
+.cart-detail {
+   display: flex;
+   margin-bottom: 10px;
+   margin-top: 0px;
+}
+.cart-total {
+   justify-content: space-between;
+}
+
+.cart-detail .title {
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 16px;
+   line-height: 26px;
+   text-align: right;
+
+   color: #1d1f22;
+}
+.cart-detail .value {
+   margin-left: 10px;
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 16px;
+   line-height: 26px;
+   color: #1d1f22;
+}
+.cart-total .title {
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 26px;
+   color: #1d1f22;
+   text-align: center;
+}
+
+.cart-total .value {
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 16px;
+   line-height: 26px;
+   color: #1d1f22;
 }
 
 .cart-tab-buttons {
@@ -174,6 +203,9 @@
    flex-direction: row;
    justify-content: space-between;
 }
-.cart-tab .cart-tab-buttons > * {
-   width: 230px;
+.cart-tab .cart-tab-buttons button {
+   width: 120px;
+   height: 30px;
+   font-size: 14px;
+   line-height: 17px;
 }

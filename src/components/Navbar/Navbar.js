@@ -1,16 +1,20 @@
 import { Component, createRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import clsx from 'clsx';
 
-import { setCurrency } from '../../services/redux/currencySlice';
-
 import './Navbar.css';
+
+import { setCurrency } from '../../services/redux/currencySlice';
+import { resetCart } from '../../services/redux/cartSlice';
+import { getCartDetails } from '../../services/helpers/generalHelper';
+
 import aLogo from '../../assets/icons/a-logo.svg';
 import emptyCart from '../../assets/icons/empty-cart.svg';
 import arrowDown from '../../assets/icons/arrow-down.svg';
 import arrowUp from '../../assets/icons/arrow-up.svg';
 
+import Cart from '../../pages/Cart';
 import Button from '../../components/Button';
 
 class Navbar extends Component {
@@ -45,7 +49,8 @@ class Navbar extends Component {
          categories,
          currencies = [],
          currency: selectedCurrency,
-         cart = []
+         cart = [],
+         resetCart
       } = this.props;
 
       const {
@@ -139,6 +144,11 @@ class Navbar extends Component {
          </div>
       );
 
+      const { totalQuantity, totalCost } = getCartDetails(
+         cart,
+         selectedCurrency
+      );
+
       const cartTab = (
          <div ref={cartDropdownRef} className="cart-icon-group">
             <p>
@@ -163,7 +173,7 @@ class Navbar extends Component {
                   show: cart.length > 0
                })}
             >
-               {cart.length}
+               {totalQuantity}
             </div>
             <div
                className={clsx({
@@ -174,20 +184,35 @@ class Navbar extends Component {
             >
                <div className="cart-content">
                   {/* cart tab info comes here */}
+                  {cart.length > 0 && (
+                     <>
+                        <div className="cart-detail">
+                           <h4 className="title">My Bag, </h4>
+                           <h4 className="value">{totalQuantity} items</h4>
+                        </div>
+                        <Cart isCartTab={true} />
+                     </>
+                  )}
                   {cart.length === 0 && <p>You have an empty cart.</p>}
                </div>
+               <div className="cart-total">
+                  <h4 className="title">Total</h4>
+                  <h4 className="value">
+                     {selectedCurrency}
+                     {totalCost}
+                  </h4>
+               </div>
                <div className="cart-tab-buttons">
-                  <Button
-                     name={'VIEW BAG'}
-                     onClick={() => {
-                        //navigate to cart page
-                     }}
-                     variant={'secondary'}
-                  />
+                  <Link to={'/cart'}>
+                     <Button name={'VIEW BAG'} variant={'secondary'} />
+                  </Link>
                   <Button
                      name={'CHECK OUT'}
                      onClick={() => {
                         //checkout function
+                        //send data to api
+                        //then
+                        resetCart();
                      }}
                   />
                </div>
@@ -216,7 +241,7 @@ class Navbar extends Component {
       );
    }
 }
-const mapStateToProps = ({ currency }) => ({ currency });
-const mapDispatchToProps = { setCurrency };
+const mapStateToProps = ({ currency, cart }) => ({ currency, cart });
+const mapDispatchToProps = { setCurrency, resetCart };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

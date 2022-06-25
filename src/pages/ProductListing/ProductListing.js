@@ -12,10 +12,6 @@ import { getAmount } from '../../services/helpers/generalHelper';
 //components
 import ProductCard from '../../components/ProductCard';
 
-const mapStateToProps = ({ currency }) => ({
-   currency
-});
-
 export class Products extends Component {
    constructor(props) {
       super(props);
@@ -86,5 +82,9 @@ export class Products extends Component {
       );
    }
 }
+
+const mapStateToProps = ({ currency }) => ({
+   currency
+});
 
 export default connect(mapStateToProps)(withRouter(Products));

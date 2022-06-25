@@ -1,0 +1,8 @@
+.carousal-img-container {
+   position: relative;
+}
+
+.carousal-img-container,
+.carousal-img {
+   width: 200px;
+}
