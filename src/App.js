@@ -35,7 +35,8 @@ class App extends Component {
          currencies:
             currencies.map(({ symbol, label }) => ({ symbol, label })) || []
       }));
-      const defaultCurrency = currencies[0].symbol || '';
+
+      const defaultCurrency = this.props.currency || currencies[0].symbol || '';
       this.props.setCurrency(defaultCurrency);
    }
    render() {
@@ -62,7 +63,10 @@ class App extends Component {
    }
 }
 
-App = connect(null, { setCurrency })(App);
+const mapStateToProps = ({ currency }) => ({ currency });
+const mapDispatchToProps = { setCurrency };
+
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 class AppWithProviders extends Component {
    render() {

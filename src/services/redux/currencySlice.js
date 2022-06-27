@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const currency = '';
+const currency = localStorage.getItem('scandiweb-selected-currency') || '';
 
 export const currencySlice = createSlice({
    name: 'currency',
    initialState: currency,
    reducers: {
-      setCurrency: (state, { payload }) => payload
+      setCurrency: (state, { payload }) => {
+         localStorage.setItem('scandiweb-selected-currency', payload);
+         return payload;
+      }
    }
 });
 
