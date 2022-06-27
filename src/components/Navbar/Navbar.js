@@ -23,7 +23,7 @@ class Navbar extends Component {
       this.state = {
          showCurrencyTab: false,
          showCart: false,
-         selectedNav: 0,
+         selectedNav: null,
          currencyDropdownRef: createRef(),
          cartDropdownRef: createRef()
       };
@@ -75,14 +75,14 @@ class Navbar extends Component {
                <NavLink
                   onClick={() =>
                      this.setState((state) => ({
-                        ...state,
                         selectedNav: index
                      }))
                   }
                   to={`/products/${category}`}
                   className={({ isActive }) =>
                      `nav-text ${
-                        isActive || index === this.state.selectedNav
+                        isActive ||
+                        (index != null && index === this.state.selectedNav)
                            ? 'nav-selected'
                            : ''
                      }`
