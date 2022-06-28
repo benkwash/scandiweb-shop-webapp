@@ -46,7 +46,8 @@ class Cart extends Component {
       const {
          currency,
          product: { quantity, productDetails },
-         cartIndex
+         cartIndex,
+         isCartTab
       } = this.props;
       let amount = quantity * getAmount(productDetails.prices, currency);
       amount = Number.parseFloat(amount).toFixed(2);
@@ -95,7 +96,10 @@ class Cart extends Component {
                      alt="reduce-quantity-ico"
                   />
                </div>
-               <ImageCarousal gallery={productDetails.gallery} />
+               <ImageCarousal
+                  gallery={productDetails.gallery}
+                  isCartTab={isCartTab}
+               />
             </div>
          </div>
       );

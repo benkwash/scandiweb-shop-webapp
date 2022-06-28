@@ -32,6 +32,7 @@ class ImageCarousal extends Component {
 
    render() {
       const { selectedImg } = this.state;
+      const { isCartTab = false } = this.props;
       return (
          <div className="carousal-img-container">
             <img
@@ -40,20 +41,22 @@ class ImageCarousal extends Component {
                alt="current-carousal"
             />
             <div className="img-overlay"></div>
-            <div className="arrow-group">
-               <img
-                  className="arrow-left-icon cursor-pointer hover-effect"
-                  src={arrowLeft}
-                  alt="arrow left icon"
-                  onClick={() => this.moveImg(true)}
-               />
-               <img
-                  className="arrow-right-icon  cursor-pointer hover-effect"
-                  src={arrowRight}
-                  alt="arrow right icon"
-                  onClick={() => this.moveImg(false)}
-               />
-            </div>
+            {!isCartTab && (
+               <div className="arrow-group">
+                  <img
+                     className="arrow-left-icon cursor-pointer hover-effect"
+                     src={arrowLeft}
+                     alt="arrow left icon"
+                     onClick={() => this.moveImg(true)}
+                  />
+                  <img
+                     className="arrow-right-icon  cursor-pointer hover-effect"
+                     src={arrowRight}
+                     alt="arrow right icon"
+                     onClick={() => this.moveImg(false)}
+                  />
+               </div>
+            )}
          </div>
       );
    }

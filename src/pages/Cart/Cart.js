@@ -24,6 +24,7 @@ class Cart extends Component {
                product={product}
                cartIndex={index}
                isCartPage={true}
+               isCartTab={isCartTab}
                key={`${product.productDetails.name}-${product.productDetails.quantity}-${index}`}
             />
             {index === cart.length - 1 && !isCartTab && <hr></hr>}
