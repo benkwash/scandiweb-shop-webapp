@@ -36,6 +36,12 @@ hr {
 .cart-details table tbody tr td:nth-child(2) {
    font-weight: 700;
 }
-.cart-details table tbody tr .total {
-   font-weight: 500;
+.cart-details .total {
+   font-weight: 600;
+}
+
+.cart-details button {
+   width: 279px;
+   height: 43px;
+   margin-bottom: 20px;
 }

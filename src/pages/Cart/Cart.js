@@ -46,7 +46,11 @@ class Cart extends Component {
                      <tbody>
                         <tr>
                            <td>Tax {taxPercentage}%:</td>
-                           <td> {tax}</td>
+                           <td>
+                              {' '}
+                              {currency}
+                              {tax}
+                           </td>
                         </tr>
                         <tr>
                            <td>Quantity:</td>
@@ -54,11 +58,17 @@ class Cart extends Component {
                         </tr>
                         <tr>
                            <td>Sub-total:</td>
-                           <td>{subTotal}</td>
+                           <td>
+                              {currency}
+                              {subTotal}
+                           </td>
                         </tr>
                         <tr>
                            <td className="total">Total:</td>
-                           <td>{totalCost}</td>
+                           <td>
+                              {currency}
+                              {totalCost}
+                           </td>
                         </tr>
                      </tbody>
                   </table>
