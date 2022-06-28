@@ -8,7 +8,8 @@ class ProductAttributes extends Component {
       const {
          attributes: { items, name },
          selectedAttribute,
-         selectAttribute
+         selectAttribute = () => {},
+         isCartPage = false
       } = this.props;
 
       const isOtherAttr = name !== 'Color';
@@ -21,7 +22,8 @@ class ProductAttributes extends Component {
                items: true,
                'other-attr': isOtherAttr,
                'color-attr': isAttrColor,
-               'hover-effect': true
+               'hover-effect': true,
+               'cursor-pointer': !isCartPage
             })}
             onClick={() => selectAttribute(name, item.id)}
          >

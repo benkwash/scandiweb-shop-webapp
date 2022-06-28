@@ -23,16 +23,15 @@ class Cart extends Component {
       };
    }
    selectAttribute = (attributeId, selectedAttribute, cartIndex) => {
-      const product = cloneDeep(this.props.cart[cartIndex]);
-
-      const attrIndex = product.productDetails.selectedAttributes.findIndex(
-         (attr) => attr.id === attributeId
-      );
-
-      product.productDetails.selectedAttributes[attrIndex].selectedAttribute =
-         selectedAttribute;
-
-      this.props.updateProduct({ cartIndex, update: product });
+      //not needed here after reading the test FAQs
+      //stil leaving this here just in case
+      // const product = cloneDeep(this.props.cart[cartIndex]);
+      // const attrIndex = product.productDetails.selectedAttributes.findIndex(
+      //    (attr) => attr.id === attributeId
+      // );
+      // product.productDetails.selectedAttributes[attrIndex].selectedAttribute =
+      //    selectedAttribute;
+      // this.props.updateProduct({ cartIndex, update: product });
    };
    updateProductQuantity = (cartIndex, action) => {
       const product = cloneDeep(this.props.cart[cartIndex]);
@@ -70,9 +69,7 @@ class Cart extends Component {
                         key={`${selectedAttribute}-${index}`}
                         attributes={attribute}
                         selectedAttribute={selectedAttribute}
-                        selectAttribute={(type, attributeId) =>
-                           this.selectAttribute(type, attributeId, cartIndex)
-                        }
+                        isCartPage={true}
                      />
                   );
                })}
