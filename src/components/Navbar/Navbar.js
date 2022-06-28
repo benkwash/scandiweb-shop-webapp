@@ -30,6 +30,9 @@ class Navbar extends Component {
    }
    selectCurrency = (selectedCurrency) => {
       this.props.setCurrency(selectedCurrency);
+      this.setState((state) => ({
+         showCurrencyTab: false
+      }));
    };
 
    listenToOutsideClick = (stateValue, ref) => {
@@ -59,15 +62,6 @@ class Navbar extends Component {
          currencyDropdownRef,
          cartDropdownRef
       } = this.state;
-      const currencyList = (
-         <ul>
-            {currencies.map(({ symbol, label }, index) => (
-               <li key={index} onClick={() => this.selectCurrency(symbol)}>
-                  {`${symbol} ${label}`}
-               </li>
-            ))}
-         </ul>
-      );
 
       const navBarLinks = categories.map((category, index) => {
          return (
@@ -110,28 +104,38 @@ class Navbar extends Component {
          <img className="arrow-icon" src={arrowUp} alt="arrow up icon" />
       );
 
+      const currencyList = (
+         <ul>
+            {currencies.map(({ symbol, label }, index) => (
+               <li key={index} onClick={() => this.selectCurrency(symbol)}>
+                  {`${symbol} ${label}`}
+               </li>
+            ))}
+         </ul>
+      );
+
       const currencyTab = (
-         <div
-            ref={currencyDropdownRef}
-            className="currency-group"
-            onClick={(e) => {
-               this.setState((state) => ({
-                  showCurrencyTab: !state.showCurrencyTab,
-                  showCart: false
-               }));
-               this.listenToOutsideClick(
-                  'showCurrencyTab',
-                  currencyDropdownRef
-               );
-            }}
-         >
-            <p className="hover-effect">
-               {selectedCurrency}
-               <span className="currency-ico">
+         <div ref={currencyDropdownRef} className="currency-group">
+            <div
+               className="hover-effect currency-btn-group"
+               onClick={(e) => {
+                  this.setState((state) => ({
+                     showCurrencyTab: !state.showCurrencyTab,
+                     showCart: false
+                  }));
+                  this.listenToOutsideClick(
+                     'showCurrencyTab',
+                     currencyDropdownRef
+                  );
+               }}
+            >
+               <h4>{selectedCurrency}</h4>
+               <div className="currency-ico">
                   {!showCurrencyTab && arrowDownIco}
                   {showCurrencyTab && arrowUpIco}
-               </span>
-            </p>
+               </div>
+            </div>
+
             <div
                className={clsx({
                   'currency-list': true,
@@ -150,31 +154,30 @@ class Navbar extends Component {
       );
 
       const cartTab = (
-         <div ref={cartDropdownRef} className="cart-icon-group">
-            <p>
-               <img
-                  className="cart-icon hover-effect"
-                  src={emptyCart}
-                  alt="cart icon"
-                  onClick={() => {
-                     this.setState((state) => ({
-                        showCart: !state.showCart,
-                        showCurrencyTab: false
-                     }));
-                     this.listenToOutsideClick('showCart', currencyDropdownRef);
-                  }}
-               />
-            </p>
-
+         <div ref={cartDropdownRef} className="cart-group">
             <div
-               className={clsx({
-                  'cart-badge': true,
-                  'element-transition': true,
-                  show: cart.length > 0
-               })}
+               className="cart-btn-group  hover-effect"
+               onClick={() => {
+                  this.setState((state) => ({
+                     showCart: !state.showCart,
+                     showCurrencyTab: false
+                  }));
+                  this.listenToOutsideClick('showCart', cartDropdownRef);
+               }}
             >
-               {totalQuantity}
+               <img className="cart-icon" src={emptyCart} alt="cart icon" />
+
+               <div
+                  className={clsx({
+                     'cart-badge': true,
+                     'element-transition': true,
+                     show: cart.length > 0
+                  })}
+               >
+                  {totalQuantity}
+               </div>
             </div>
+
             <div
                className={clsx({
                   'cart-tab': true,
