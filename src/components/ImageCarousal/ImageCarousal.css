@@ -2,7 +2,24 @@
    position: relative;
 }
 
-.carousal-img-container,
-.carousal-img {
+.carousal-img-container {
    width: 200px;
+   height: 100%;
+}
+.carousal-img {
+   opacity: 0.5;
+   object-fit: contain;
+   height: 100%;
+   width: 100%;
+}
+
+.arrow-group {
+   display: flex;
+   position: absolute;
+   right: 10px;
+   bottom: 10px;
+}
+
+.arrow-group img {
+   margin: 5px;
 }
