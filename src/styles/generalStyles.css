@@ -40,14 +40,12 @@
 
 .element-transition {
    visibility: hidden;
-   display: none;
    opacity: 0;
    -webkit-transition: opacity 0.5s, visibility 0.5s;
    transition: opacity 0.5s, visibility 0.5s;
 }
 .element-transition.show {
    visibility: visible;
-   display: block;
    opacity: 1;
 }
 
