@@ -3,7 +3,6 @@
    flex-direction: row;
    align-items: flex-start;
    padding: 0px;
-
    position: absolute;
    width: 234px;
    height: 56px;
@@ -17,7 +16,6 @@
 .nav-text {
    color: #1d1f22;
    text-decoration: none;
-   font-family: 'Raleway';
    font-weight: 600;
    font-size: 16px;
    line-height: 19.2px;
@@ -86,7 +84,6 @@
 }
 
 .currency-group .currency-btn-group h4 {
-   font-family: 'Raleway';
    font-weight: 500;
    font-size: 18px;
    line-height: 28.8px;
@@ -113,7 +110,6 @@
 
 .cart-badge {
    color: #fff;
-   font-family: 'Roboto';
    font-weight: 700;
    font-size: 14px;
    line-height: 20.41px;
@@ -135,7 +131,6 @@
 }
 .currency-list ul li {
    padding: 5px 0 5px 20px;
-   font-family: 'Raleway';
    font-weight: 500;
    font-size: 18px;
    line-height: 28.8px;
@@ -176,42 +171,29 @@
    justify-content: space-between;
 }
 
-.cart-detail .title {
-   font-family: 'Roboto';
-   font-style: normal;
-   font-weight: 700;
+.cart-detail h4,
+.cart-total h4 {
    font-size: 16px;
    line-height: 26px;
-   text-align: right;
-
    color: #1d1f22;
+   font-style: normal;
+}
+
+.cart-detail .title,
+.cart-detail .value,
+.cart-total .value {
+   font-weight: 700;
+}
+
+.cart-detail .title {
+   text-align: right;
 }
 .cart-detail .value {
    margin-left: 10px;
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 700;
-   font-size: 16px;
-   line-height: 26px;
-   color: #1d1f22;
 }
 .cart-total .title {
-   font-family: 'Roboto';
-   font-style: normal;
    font-weight: 500;
-   font-size: 16px;
-   line-height: 26px;
-   color: #1d1f22;
    text-align: center;
-}
-
-.cart-total .value {
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 700;
-   font-size: 16px;
-   line-height: 26px;
-   color: #1d1f22;
 }
 
 .cart-tab-buttons {

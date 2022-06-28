@@ -143,8 +143,8 @@ class ProductDetails extends Component {
                <div className="img-overlay"></div>
             </div>
             <div className="product-details">
-               <h2>{brand}</h2>
-               <h1>{name}</h1>
+               <h2 className="p-brand ff-raleway">{brand}</h2>
+               <h2 className="p-name ff-raleway">{name}</h2>
 
                {attributes.map((attribute, index) => {
                   let selectedAttribute = selectedAttributes.find(
@@ -162,7 +162,7 @@ class ProductDetails extends Component {
                   );
                })}
                <h3 className="price-title">PRICE:</h3>
-               <h3 className="price-value">
+               <h3 className="price-value ff-raleway">
                   {currency}
                   {amount}
                </h3>
@@ -172,7 +172,7 @@ class ProductDetails extends Component {
                />
                <div
                   dangerouslySetInnerHTML={{ __html: description }}
-                  className="product-description"
+                  className="product-description ff-roboto"
                />
             </div>
          </div>

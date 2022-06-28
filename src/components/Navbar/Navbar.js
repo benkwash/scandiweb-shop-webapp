@@ -74,7 +74,7 @@ class Navbar extends Component {
                   onClick={() => setNavIndex(index)}
                   to={`/products/${category}`}
                   className={({ isActive }) =>
-                     `nav-text ${
+                     `nav-text ff-raleway ${
                         isActive || (index != null && index === selectedNav)
                            ? 'nav-selected'
                            : ''
@@ -106,7 +106,11 @@ class Navbar extends Component {
       const currencyList = (
          <ul>
             {currencies.map(({ symbol, label }, index) => (
-               <li key={index} onClick={() => this.selectCurrency(symbol)}>
+               <li
+                  className="ff-raleway"
+                  key={index}
+                  onClick={() => this.selectCurrency(symbol)}
+               >
                   {`${symbol} ${label}`}
                </li>
             ))}
@@ -128,7 +132,7 @@ class Navbar extends Component {
                   );
                }}
             >
-               <h4>{selectedCurrency}</h4>
+               <h4 className="ff-raleway">{selectedCurrency}</h4>
                <div className="currency-ico">
                   {!showCurrencyTab && arrowDownIco}
                   {showCurrencyTab && arrowUpIco}
@@ -170,7 +174,8 @@ class Navbar extends Component {
                   className={clsx({
                      'cart-badge': true,
                      'element-transition': true,
-                     show: cart.length > 0
+                     show: cart.length > 0,
+                     'ff-roboto': true
                   })}
                >
                   {totalQuantity}
@@ -189,8 +194,10 @@ class Navbar extends Component {
                   {cart.length > 0 && (
                      <>
                         <div className="cart-detail">
-                           <h4 className="title">My Bag, </h4>
-                           <h4 className="value">{totalQuantity} items</h4>
+                           <h4 className="title ff-roboto">My Bag, </h4>
+                           <h4 className="value ff-raleway">
+                              {totalQuantity} items
+                           </h4>
                         </div>
                         <Cart isCartTab={true} />
                      </>
@@ -198,8 +205,8 @@ class Navbar extends Component {
                   {cart.length === 0 && <p>You have an empty cart.</p>}
                </div>
                <div className="cart-total">
-                  <h4 className="title">Total</h4>
-                  <h4 className="value">
+                  <h4 className="title ff-roboto">Total</h4>
+                  <h4 className="value ff-raleway">
                      {selectedCurrency}
                      {totalCost}
                   </h4>

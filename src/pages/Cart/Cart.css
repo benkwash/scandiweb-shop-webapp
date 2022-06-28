@@ -2,9 +2,12 @@
    width: 100%;
 }
 
-.cart-page-title {
+.cart-page-title,
+.cart-details table tbody tr td {
    font-family: 'Raleway';
    font-style: normal;
+}
+.cart-page-title {
    font-weight: 700;
    font-size: 32px;
    line-height: 40px;
@@ -24,8 +27,6 @@ hr {
    margin-top: 40px;
 }
 .cart-details table tbody tr td {
-   font-family: 'Raleway';
-   font-style: normal;
    font-size: 24px;
    line-height: 28px;
    color: #1d1f22;
