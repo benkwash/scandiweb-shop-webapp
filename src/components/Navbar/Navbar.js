@@ -207,7 +207,16 @@ class Navbar extends Component {
                </div>
                <div className="cart-tab-buttons">
                   <Link to={'/cart'}>
-                     <Button name={'VIEW BAG'} variant={'secondary'} />
+                     <Button
+                        name={'VIEW BAG'}
+                        variant={'secondary'}
+                        onClick={() => {
+                           this.setState((state) => ({
+                              showCart: !state.showCart,
+                              showCurrencyTab: false
+                           }));
+                        }}
+                     />
                   </Link>
                   <Button
                      name={'CHECK OUT'}
