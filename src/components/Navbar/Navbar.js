@@ -20,10 +20,12 @@ import Button from '../../components/Button';
 class Navbar extends Component {
    constructor(props) {
       super(props);
+      // const navItem = localStorage.getItem('scandiweb-selected-nav');
+      // const selectedNav = navItem ? Number.parseInt(navItem, 10) : null;
       this.state = {
          showCurrencyTab: false,
          showCart: false,
-         selectedNav: null,
+         // selectedNav,
          currencyDropdownRef: createRef(),
          cartDropdownRef: createRef()
       };
@@ -53,7 +55,9 @@ class Navbar extends Component {
          currencies = [],
          currency: selectedCurrency,
          cart = [],
-         resetCart
+         resetCart,
+         setNavIndex,
+         selectedNav
       } = this.props;
 
       const {
@@ -67,16 +71,11 @@ class Navbar extends Component {
          return (
             <div className="nav-items" key={`${index}-${category}`}>
                <NavLink
-                  onClick={() =>
-                     this.setState((state) => ({
-                        selectedNav: index
-                     }))
-                  }
+                  onClick={() => setNavIndex(index)}
                   to={`/products/${category}`}
                   className={({ isActive }) =>
                      `nav-text ${
-                        isActive ||
-                        (index != null && index === this.state.selectedNav)
+                        isActive || (index != null && index === selectedNav)
                            ? 'nav-selected'
                            : ''
                      }`
@@ -86,7 +85,7 @@ class Navbar extends Component {
                         {category.toUpperCase()}
                         <div
                            className={`nav-bar ${
-                              !isActive && index !== this.state.selectedNav
+                              !isActive && index !== selectedNav
                                  ? 'bar-hidden'
                                  : ''
                            }`}
