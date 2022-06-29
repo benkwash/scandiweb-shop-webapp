@@ -25,8 +25,7 @@ class App extends Component {
    constructor() {
       super();
       const navItem = localStorage.getItem('scandiweb-selected-nav');
-      const selectedNav = navItem ? Number.parseInt(navItem, 10) : null;
-
+      const selectedNav = navItem ? Number.parseInt(navItem, 10) : 0;
       this.state = {
          categories: [],
          currencies: [],
@@ -38,12 +37,10 @@ class App extends Component {
       const {
          data: { categories, currencies }
       } = await getCategoriesAndCurrencies();
-      const categoriesFiltered = categories.map(({ name }) => name) || [];
       this.setState((state) => ({
-         categories: categoriesFiltered,
+         categories: categories.map(({ name }) => name) || [],
          currencies:
-            currencies.map(({ symbol, label }) => ({ symbol, label })) || [],
-         selectedNav: state.selectedNav || categoriesFiltered[0] || null
+            currencies.map(({ symbol, label }) => ({ symbol, label })) || []
       }));
 
       const defaultCurrency = this.props.currency || currencies[0].symbol || '';
