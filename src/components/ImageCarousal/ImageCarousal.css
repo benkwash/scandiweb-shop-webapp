@@ -3,17 +3,15 @@
 }
 
 .carousal-img-container {
-   width: 200px;
+   width: 230px;
    height: 100%;
 }
 .carousal-img {
-   opacity: 0.5;
-   object-fit: contain;
-   height: 100%;
    width: 100%;
 }
 
 .arrow-group {
+   opacity: 0.9;
    display: flex;
    position: absolute;
    right: 10px;

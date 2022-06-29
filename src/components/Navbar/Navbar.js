@@ -20,12 +20,9 @@ import Button from '../../components/Button';
 class Navbar extends Component {
    constructor(props) {
       super(props);
-      // const navItem = localStorage.getItem('scandiweb-selected-nav');
-      // const selectedNav = navItem ? Number.parseInt(navItem, 10) : null;
       this.state = {
          showCurrencyTab: false,
          showCart: false,
-         // selectedNav,
          currencyDropdownRef: createRef(),
          cartDropdownRef: createRef()
       };
@@ -192,16 +189,14 @@ class Navbar extends Component {
                <div className="cart-content">
                   {/* cart tab info comes here */}
                   {cart.length > 0 && (
-                     <>
-                        <div className="cart-detail">
-                           <h4 className="title ff-roboto">My Bag, </h4>
-                           <h4 className="value ff-raleway">
-                              {totalQuantity} items
-                           </h4>
-                        </div>
-                        <Cart isCartTab={true} />
-                     </>
+                     <div className="cart-detail">
+                        <h4 className="title ff-roboto">My Bag, </h4>
+                        <h4 className="value ff-raleway">
+                           {totalQuantity} items
+                        </h4>
+                     </div>
                   )}
+                  {cart.length > 0 && <Cart isCartTab={true} />}
                   {cart.length === 0 && <p>You have an empty cart.</p>}
                </div>
                <div className="cart-total">
@@ -212,27 +207,32 @@ class Navbar extends Component {
                   </h4>
                </div>
                <div className="cart-tab-buttons">
-                  <Link to={'/cart'}>
+                  <div className="cart-tab-btn">
+                     <Link to={'/cart'}>
+                        <Button
+                           name={'VIEW BAG'}
+                           variant={'secondary'}
+                           onClick={() => {
+                              this.setState((state) => ({
+                                 showCart: !state.showCart,
+                                 showCurrencyTab: false
+                              }));
+                           }}
+                        />
+                     </Link>
+                  </div>
+
+                  <div className="cart-tab-btn">
                      <Button
-                        name={'VIEW BAG'}
-                        variant={'secondary'}
+                        name={'CHECK OUT'}
                         onClick={() => {
-                           this.setState((state) => ({
-                              showCart: !state.showCart,
-                              showCurrencyTab: false
-                           }));
+                           //checkout function
+                           //send data to api
+                           //then
+                           resetCart();
                         }}
                      />
-                  </Link>
-                  <Button
-                     name={'CHECK OUT'}
-                     onClick={() => {
-                        //checkout function
-                        //send data to api
-                        //then
-                        resetCart();
-                     }}
-                  />
+                  </div>
                </div>
             </div>
          </div>

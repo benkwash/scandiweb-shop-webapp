@@ -12,6 +12,13 @@
    flex-direction: row;
 }
 
+.items {
+   margin-right: 12px;
+   padding: 0;
+   border: none;
+   background-color: #fff;
+}
+
 .color-attr > div {
    width: 35px;
    height: 35px;
@@ -20,7 +27,7 @@
 
 .color-attr.selected-item {
    border: 1px solid #5ece7b;
-   border-style: double;
+   /* border-style: double; */
 }
 
 .other-attr {
@@ -32,7 +39,6 @@
 }
 
 .other-attr h3 {
-   position: absolute;
    margin: 0;
    display: inline-block;
    letter-spacing: 0.05em;
@@ -45,7 +51,4 @@
 .other-attr.selected-item {
    background: #1d1f22;
    color: #fff;
-}
-.items {
-   margin-right: 12px;
 }

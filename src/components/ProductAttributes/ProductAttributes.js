@@ -12,24 +12,23 @@ class ProductAttributes extends Component {
          isCartPage = false
       } = this.props;
 
-      const isOtherAttr = name !== 'Color';
       const isAttrColor = name === 'Color';
       const attributesItems = items.map((item, index) => (
-         <div
+         <button
             key={`${index}-${item.id}`}
             className={clsx({
                'selected-item': item.id === selectedAttribute,
                items: true,
-               'other-attr': isOtherAttr,
+               'other-attr': !isAttrColor,
                'color-attr': isAttrColor,
                'hover-effect': true,
                'cursor-pointer': !isCartPage
             })}
             onClick={() => selectAttribute(name, item.id)}
          >
-            {isOtherAttr && <h3 className="center-xy">{item.value}</h3>}
+            {!isAttrColor && <h3>{item.value}</h3>}
             {isAttrColor && <div style={{ backgroundColor: item.value }}></div>}
-         </div>
+         </button>
       ));
       return (
          <div>

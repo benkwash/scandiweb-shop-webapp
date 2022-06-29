@@ -9,7 +9,8 @@
    bottom: 0px;
 }
 .nav-items {
-   padding: 0 10px 0 10px;
+   padding-left: 15px;
+   padding-right: 15px;
    height: 56px;
    position: relative;
 }
@@ -25,7 +26,7 @@
    position: relative;
    top: 35px;
    width: 120%;
-   border: solid #5ece7b;
+   border: 1px solid #5ece7b;
    left: 50%;
    -ms-transform: translateX(-50%);
    transform: translateX(-50%);
@@ -56,7 +57,6 @@
    align-items: center;
    padding: 0px;
    gap: 22px;
-
    position: absolute;
    width: 204px;
    height: 40px;
@@ -144,21 +144,17 @@
    display: inline-block;
    z-index: 10;
    position: absolute;
-   width: 290px;
    background: #ffffff;
    right: -20px;
    top: 45px;
    padding: 20px;
+   min-width: 250px;
 }
 
 .cart-tab .cart-content {
    max-height: 350px;
    overflow-y: scroll;
    overflow-x: hidden;
-}
-
-.cart-tab .cart-page > * {
-   zoom: 50%;
 }
 
 .cart-total,
@@ -200,10 +196,79 @@
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+   width: 100%;
+}
+.cart-tab .cart-tab-buttons .cart-tab-btn {
+   height: 30px;
+   flex-grow: 1;
+}
+
+.cart-tab .cart-tab-buttons .cart-tab-btn:nth-child(1) {
+   margin-right: 5px;
+}
+.cart-tab .cart-tab-buttons .cart-tab-btn:nth-child(2) {
+   margin-left: 5px;
 }
 .cart-tab .cart-tab-buttons button {
-   width: 120px;
-   height: 30px;
+   height: 100%;
+   width: 100%;
    font-size: 14px;
    line-height: 17px;
+}
+
+.cart-content .cart-item-container .item-brand,
+.cart-content .cart-item-container .item-name,
+.cart-content .cart-item-container .item-amount {
+   font-size: 16px;
+   line-height: 26px;
+}
+
+.cart-content .cart-item-container .item-brand,
+.cart-content .cart-item-container .item-name {
+   margin-top: 0px;
+   font-weight: 300;
+}
+
+.cart-content .cart-item-container .item-name {
+   margin-top: -10px;
+}
+
+.cart-content .cart-item-container .item-amount {
+   margin-top: -10px;
+   font-weight: 600;
+}
+
+.cart-content .cart-quantity-controls img {
+   width: 24px;
+   height: 24px;
+   border: 1px solid #1d1f22;
+}
+.cart-content .cart-quantity-controls .quantity {
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 26px;
+}
+
+.cart-content .attr-title {
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 16px;
+}
+.cart-content .other-attr {
+   height: 24px;
+   width: auto;
+   min-width: 24px;
+}
+.cart-content .other-attr h3 {
+   margin-left: 3px;
+   margin-right: 3px;
+}
+
+.cart-content .color-attr > div {
+   height: 24px;
+   width: 24px;
+}
+
+.cart-content .carousal-img-container {
+   width: 121px;
 }
