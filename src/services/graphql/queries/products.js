@@ -7,6 +7,7 @@ const getProductsQuery = gql`
          products {
             id
             name
+            brand
             inStock
             gallery
             prices {

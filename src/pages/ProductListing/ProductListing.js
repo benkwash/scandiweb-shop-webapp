@@ -58,7 +58,7 @@ export class Products extends Component {
       const { currency } = this.props;
 
       const productCards = products.map(
-         ({ name, gallery, prices, id, inStock }, index) => (
+         ({ name, gallery, prices, id, inStock, brand }, index) => (
             <div key={`${index}-${id}-${currency}`}>
                <ProductCard
                   image={gallery[0]}
@@ -67,6 +67,7 @@ export class Products extends Component {
                   price={getAmount(prices, currency)}
                   inStock={inStock}
                   goToProduct={() => this.navigateToProductDetails(id)}
+                  brand={brand}
                />
             </div>
          )

@@ -6,7 +6,8 @@ import cartIco from '../../assets/icons/green-cart.svg';
 
 class ProductCard extends Component {
    render() {
-      const { image, name, price, currency, inStock, goToProduct } = this.props;
+      const { image, name, price, currency, inStock, goToProduct, brand } =
+         this.props;
       return (
          <div className="product-card">
             <div className="product-image">
@@ -34,7 +35,7 @@ class ProductCard extends Component {
                ></div>
             </div>
             <div className="product-content">
-               <h5 className="product-name">{name}</h5>
+               <h5 className="product-name">{`${brand} ${name}`}</h5>
                <h3 className="product-price">
                   {currency}
                   {price}
