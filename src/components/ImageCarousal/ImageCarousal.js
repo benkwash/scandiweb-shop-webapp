@@ -32,16 +32,16 @@ class ImageCarousal extends Component {
 
    render() {
       const { selectedImg } = this.state;
-      const { isCartTab = false } = this.props;
+      const { isCartTab = false, gallery } = this.props;
       return (
          <div className="carousal-img-container">
             <img
                className="carousal-img  element-transition show"
-               src={this.props.gallery[selectedImg]}
+               src={gallery[selectedImg]}
                alt="current-carousal"
             />
             <div className="img-overlay"></div>
-            {!isCartTab && (
+            {!isCartTab && gallery.length > 1 && (
                <div className="arrow-group">
                   <img
                      className="arrow-left-icon cursor-pointer hover-effect"
