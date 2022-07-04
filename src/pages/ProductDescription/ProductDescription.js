@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
+import parseHtmlString from 'html-react-parser';
 
 import './ProductDescription.css';
 import { withRouter } from '../../services/helpers/withRouter';
@@ -165,10 +166,9 @@ class ProductDetails extends Component {
                   onClick={() => this.addProductToCartHandler()}
                   name={'ADD TO CART'}
                />
-               <div
-                  dangerouslySetInnerHTML={{ __html: description }}
-                  className="product-description ff-roboto"
-               />
+               <div className="product-description ff-roboto">
+                  {parseHtmlString(description)}
+               </div>
             </div>
          </div>
       );
