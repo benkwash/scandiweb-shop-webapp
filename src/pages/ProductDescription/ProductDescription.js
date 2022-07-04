@@ -28,10 +28,6 @@ class ProductDetails extends Component {
          },
          gallery: [],
          description: '',
-         selectedImage: '',
-         selectedSize: '',
-         selectedCapacity: '',
-         selectedColor: '',
          prices: []
       };
    }

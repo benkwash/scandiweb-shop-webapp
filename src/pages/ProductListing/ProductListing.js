@@ -68,6 +68,7 @@ export class Products extends Component {
                   inStock={inStock}
                   goToProduct={() => this.navigateToProductDetails(id)}
                   brand={brand}
+                  productId={id}
                />
             </div>
          )
