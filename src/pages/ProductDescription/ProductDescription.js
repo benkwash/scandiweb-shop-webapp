@@ -102,7 +102,6 @@ class ProductDetails extends Component {
          description,
          prices
       });
-      this.props.navigate(-1);
    };
 
    selectImage = (imageIndex) => {
