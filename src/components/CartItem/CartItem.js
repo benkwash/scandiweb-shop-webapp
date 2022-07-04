@@ -49,7 +49,7 @@ class Cart extends Component {
          cartIndex,
          isCartTab
       } = this.props;
-      let amount = quantity * getAmount(productDetails.prices, currency);
+      let amount = getAmount(productDetails.prices, currency);
       amount = Number.parseFloat(amount).toFixed(2);
       return (
          <div className="cart-item-container">
