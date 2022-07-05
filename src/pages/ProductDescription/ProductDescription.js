@@ -29,7 +29,8 @@ class ProductDetails extends Component {
          },
          gallery: [],
          description: '',
-         prices: []
+         prices: [],
+         inStock: false
       };
    }
 
@@ -41,7 +42,8 @@ class ProductDetails extends Component {
       const {
          data: { product }
       } = await getProductDescription(this.props.params.productId);
-      const { name, attributes, brand, gallery, description, prices } = product;
+      const { name, attributes, brand, gallery, description, prices, inStock } =
+         product;
 
       const price = getAmount(prices, this.props.currency);
 
@@ -62,7 +64,8 @@ class ProductDetails extends Component {
          gallery,
          selectedImage: gallery[0],
          description,
-         prices
+         prices,
+         inStock
       }));
    };
 
@@ -116,7 +119,8 @@ class ProductDetails extends Component {
          gallery,
          selectedImage,
          description,
-         prices
+         prices,
+         inStock
       } = this.state;
       const { currency } = this.props;
       const amount = !isEmpty(prices) ? getAmount(prices, currency) : 0;
@@ -136,6 +140,9 @@ class ProductDetails extends Component {
             </div>
             <div className="selected-image">
                <img src={selectedImage} alt="selected-product"></img>
+               {!inStock && (
+                  <h4 className="out-of-stock center-xy">OUT OF STOCK</h4>
+               )}
                <div className="img-overlay"></div>
             </div>
             <div className="product-details">
@@ -165,6 +172,7 @@ class ProductDetails extends Component {
                <Button
                   onClick={() => this.addProductToCartHandler()}
                   name={'ADD TO CART'}
+                  disabled={!inStock}
                />
                <div className="product-description ff-roboto">
                   {parseHtmlString(description)}

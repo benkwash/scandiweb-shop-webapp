@@ -9,13 +9,17 @@ class Button extends Component {
          name,
          type = 'button',
          onClick = () => {},
-         variant = 'primary'
+         variant = 'primary',
+         disabled = false
       } = this.props;
       return (
          <button
             type={type}
             onClick={() => onClick()}
-            className={clsx('reusable-btn', 'cursor-pointer', variant)}
+            className={clsx('reusable-btn', 'cursor-pointer', variant, {
+               disabled
+            })}
+            disabled={disabled}
          >
             {name}
          </button>

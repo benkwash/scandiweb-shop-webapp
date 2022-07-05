@@ -82,3 +82,7 @@
    line-height: 26px;
    margin-top: 30px;
 }
+
+.selected-image .out-of-stock {
+   font-size: 40px;
+}

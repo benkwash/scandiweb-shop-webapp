@@ -64,3 +64,13 @@
 .fs-nm {
    font-style: normal;
 }
+
+.out-of-stock {
+   position: absolute;
+   font-weight: 400;
+   color: #8d8f9a;
+}
+
+.o-out-of-stock {
+   background-color: rgba(210, 210, 210, 0.471);
+}

@@ -34,7 +34,6 @@ class ProductCard extends Component {
    addProductToCart = (e) => {
       e.stopPropagation();
       this.fetchProductDetailsAndAddToCart();
-      console.log('clicked');
    };
 
    render() {

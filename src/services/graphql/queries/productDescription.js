@@ -25,6 +25,7 @@ const getProductDescription = gql`
             amount
          }
          brand
+         inStock
       }
    }
 `;
